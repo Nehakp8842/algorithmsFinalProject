@@ -1,6 +1,9 @@
+import java.util.ArrayList;
+
 public class BusStop {
     final private int stopID;
     private String stopName;
+    public ArrayList<Edge> outEdges = new ArrayList<>();
 
     BusStop(int ID, String name) {
         stopID = ID;
@@ -19,5 +22,9 @@ public class BusStop {
 
     public String getStopName() {
         return stopName;
+    }
+
+    public void addEdge(Edge newEdge) {
+        outEdges.add(newEdge);
     }
 }
