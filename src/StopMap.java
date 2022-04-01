@@ -85,4 +85,8 @@ public class StopMap {
             e.printStackTrace();
         }
     }
+
+    public HashMap<Integer, BusStop> getMapOfStops() {
+        return mapOfStops;
+    }
 }
