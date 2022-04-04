@@ -22,8 +22,7 @@ public class StopMap {
             BusStop stop;
             int stopID;
             String stopName;
-            while(currentLine != null) {
-                currentLine = bufferStops.readLine();
+            while((currentLine = bufferStops.readLine()) != null) {
                 currentLineSeparated = currentLine.split(",", 3);
                 stopID = Integer.parseInt(currentLineSeparated[0]);
                 stopName = currentLineSeparated[2];
@@ -40,8 +39,7 @@ public class StopMap {
             int stopID_B;
             int transferType;
             int transferTime;
-            while(currentLine != null) {
-                currentLine = bufferTransfers.readLine();
+            while((currentLine = bufferTransfers.readLine()) != null) {
                 currentLineSeparated = currentLine.split(",", 4);
                 stopID_A = Integer.parseInt(currentLineSeparated[0]);
                 stopID_B = Integer.parseInt(currentLineSeparated[1]);
@@ -64,18 +62,23 @@ public class StopMap {
             int tripID_B;
 
             currentLine = bufferStopTimes.readLine();
-            currentLineSeparated = currentLine.split(",", 4);
+            currentLine = currentLine.replaceAll(" ", "");
+            currentLineSeparated = currentLine.split(",");
             tripID_A = Integer.parseInt(currentLineSeparated[0]);
-            stopID_A = Integer.parseInt(currentLineSeparated[4]);
+
+            stopID_A = Integer.parseInt(currentLineSeparated[3]);
             while ((currentLine = bufferStopTimes.readLine()) != null) {
-                currentLineSeparated = currentLine.split(",", 4);
+                currentLine = currentLine.replaceAll(" ", "");
+                currentLineSeparated = currentLine.split(",");
                 tripID_B = Integer.parseInt(currentLineSeparated[0]);
                 stopID_B = Integer.parseInt(currentLineSeparated[4]);
                 if(tripID_A == tripID_B) {
                     stopA = mapOfStops.get(stopID_A);
                     stopB = mapOfStops.get(stopID_B);
-                    newEdge = new Edge(stopA, stopB, 1);
-                    stopA.addEdge(newEdge);
+                    if(stopA != null && stopB != null) {
+                        newEdge = new Edge(stopA, stopB, 1);
+                        stopA.addEdge(newEdge);
+                    }
                 }
                 tripID_A = tripID_B;
                 stopID_A = stopID_B;
