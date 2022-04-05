@@ -102,7 +102,6 @@ public class shortestPathBetweenStops {
         shortestDistances.put(startVertex, 0.0);
 
         for(int i : shortestDistances.keySet()) {
-            if(skipV1) {
                 int nearest = minDist(shortestDistances, verticesAdded);
                 verticesAdded.put(nearest, true);
 
@@ -118,7 +117,7 @@ public class shortestPathBetweenStops {
                     shortestDistances.put(selectedEdge.getStopID_B(), minWeight + shortestDistances.get(nearest));
                     edgesPassed.put(selectedEdge.getStopID_B(), selectedEdge);
                 }
-            }
+
             skipV1 = true;
         }
 
