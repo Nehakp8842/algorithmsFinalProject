@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class stopTimeList {
     private ArrayList<stopTime> list = new ArrayList<>();
 
+    //class constructor (make an ArrayList of all valid stop times)
     stopTimeList() {
         try {
             FileReader fileReader = new FileReader("stop_times.txt");
@@ -25,6 +26,7 @@ public class stopTimeList {
         }
     }
 
+    //return the list of stop times
     public ArrayList<stopTime> getList() {
         return list;
     }

@@ -8,14 +8,17 @@ public class mainInterface {
         Scanner input = new Scanner(System.in);
         boolean quit = false;
 
+        //print welcome message
         System.out.println("Welcome to Super Bus System!");
         while (!quit) {
+            //print Main Menu selections
             System.out.print("To find the shortest path between two stops, type 1. \n" +
                     "To search for a stop by name, type 2. \nTo search for an arrival by time, type 3. \n" +
                     "To exit the program, type \"Quit\". ");
             if (input.hasNextInt()) {
                 int inputNumber = input.nextInt();
                 if (inputNumber == 1) {
+                    //create graph
                     StopMap makeMap = new StopMap();
                     HashMap<Integer, BusStop> mapOfStops = makeMap.getMapOfStops();
                     boolean back = false;
@@ -24,6 +27,7 @@ public class mainInterface {
                     BusStop stopB = null;
 
                     boolean stopAGiven = false;
+                    //take input for stop A (from stop)
                     while (!back && !stopAGiven) {
                         System.out.print("Enter starting stop (or type \"Back\" to return to Main Menu): ");
                         if (input.hasNextInt()) {
@@ -46,6 +50,7 @@ public class mainInterface {
                     }
 
                         boolean stopBGiven = false;
+                        //take input for stop B (to stop)
                         while (!back && !stopBGiven) {
                             System.out.print("Enter final stop (or type \"Back\" to return to Main Menu): ");
                             if (input.hasNextInt()) {
@@ -68,6 +73,7 @@ public class mainInterface {
                             }
                         }
 
+                        //print results
                         if(!back) {
                             int stopID_A = stopA.getStopID();
                             int stopID_B = stopB.getStopID();
@@ -87,17 +93,20 @@ public class mainInterface {
                             }
                         }
                 } else if (inputNumber == 2) {
+                    //create name TST
                     stopNameSearch search = new stopNameSearch();
                     ternarySearchTree<Integer> stopTree = search.getStopTree();
                     boolean nameGiven = false;
                     boolean back = false;
 
                     while(!back && !nameGiven) {
+                        //take input
                         System.out.print("Search for a stop name: ");
                         if (input.hasNext()) {
                             String userInput = input.next();
                             userInput = userInput.toUpperCase();
                             if (!userInput.equals("")) {
+                                //print results that are found
                                 if (stopTree.keysWithPrefix(userInput) != null) {
                                     for (String s : stopTree.keysThatMatch(userInput)) {
                                         System.out.println(s);
@@ -119,6 +128,7 @@ public class mainInterface {
                         }
                     }
                 } else if (inputNumber == 3) {
+                    //create TST for times
                     arrivalTimeSearch search = new arrivalTimeSearch();
                     ternarySearchTree<stopTime> stopTimeTree = search.getStopTimeTree();
                     boolean timeGiven = false;
@@ -126,12 +136,14 @@ public class mainInterface {
                     boolean back = false;
 
                     while(!back && !timeGiven) {
+                        //take input for arrival time
                         System.out.print("Search for an arrival time (or type \"Quit\"): ");
                         if (input.hasNext()) {
                             String userInput = input.next();
                             userInput = userInput.toUpperCase();
                             String[] userInputSplit = userInput.split(":");
                             if (!userInput.equals("")) {
+                                //sort results by trip ID and print
                                 if (userInputSplit.length == 3) {
                                     if (userInputSplit[0] != null && userInputSplit[1] != null && userInputSplit[2] != null &&
                                             Integer.parseInt(userInputSplit[0]) >= 0 && Integer.parseInt(userInputSplit[0]) <= 23 &&

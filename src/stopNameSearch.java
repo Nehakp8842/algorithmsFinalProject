@@ -3,6 +3,7 @@ import java.util.HashMap;
 public class stopNameSearch {
     private ternarySearchTree<Integer> stopTree;
 
+    //construct ternary search tree of stops organised by name
     public stopNameSearch() {
         stopTree = new ternarySearchTree<>();
         StopMap makeMap = new StopMap();
@@ -14,6 +15,7 @@ public class stopNameSearch {
         }
     }
 
+    //return the TST
     public ternarySearchTree<Integer> getStopTree() {
         return stopTree;
     }

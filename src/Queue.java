@@ -1,3 +1,5 @@
+//from https://algs4.cs.princeton.edu/13stacks/Queue.java.html
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
     public class Queue<Item> implements Iterable<Item> {

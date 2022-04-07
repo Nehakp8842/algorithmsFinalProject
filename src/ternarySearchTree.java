@@ -1,3 +1,5 @@
+//from https://algs4.cs.princeton.edu/52trie/TST.java.html
+
 public class ternarySearchTree<Value> {
     private int n;
     private Node<Value> root;

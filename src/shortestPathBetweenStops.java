@@ -6,6 +6,7 @@ public class shortestPathBetweenStops {
     public static HashMap<Integer, BusStop> mapOfStops;
     public static HashMap<Integer, Edge> edgesPassed = new HashMap<>();
 
+    //compute shortest distances using Dijkstra algorithm
     public static HashMap<Integer, Double> dijkstra(HashMap<Integer, BusStop> map, int startVertex, int wantedVertex) {
         HashMap<Integer, Double> shortestDistances = new HashMap<>();
         HashMap<Integer, Boolean> verticesAdded = new HashMap<>();
@@ -39,6 +40,7 @@ public class shortestPathBetweenStops {
         return shortestDistances;
     }
 
+    //find the minimum distance that has not been already visited
     private static int minDist(HashMap<Integer, Double> distances, HashMap<Integer, Boolean> added) {
         double min = Double.MAX_VALUE;
         int min_index = 0;
@@ -52,6 +54,7 @@ public class shortestPathBetweenStops {
         return min_index;
     }
 
+    //return the list of edges passed to take the shortest route from stop A to stop B
     public static ArrayList<Edge> AtoBPath(int startStop, int EndStop) {
         ArrayList<Edge> path = new ArrayList<>();
         boolean startFound = false;
@@ -80,6 +83,7 @@ public class shortestPathBetweenStops {
         }
     }
 
+    //return the mapOfStops hash map
     public HashMap<Integer, BusStop> getMapOfStops() {
         return mapOfStops;
     }

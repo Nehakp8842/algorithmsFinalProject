@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+//class constructor
 public class BusStop {
     final private int stopID;
     private String stopName;
@@ -19,14 +20,17 @@ public class BusStop {
         }
     }
 
+    //return stopID
     public int getStopID() {
         return stopID;
     }
 
+    //return stopName
     public String getStopName() {
         return stopName;
     }
 
+    //add a new edge to the ArrayList outEdges
     public void addEdge(Edge newEdge) {
         outEdges.add(newEdge);
     }

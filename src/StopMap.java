@@ -5,6 +5,7 @@ import java.io.FileReader;
 public class StopMap {
     private HashMap<Integer, BusStop> mapOfStops = new HashMap<>();
 
+    //construct graph with nodes(busStop class) and edges (Edge class) in the form of a HashMap<Integer, BusStop>
     StopMap() {
         try{
             FileReader readFileStops = new FileReader("stops.txt");
@@ -90,6 +91,7 @@ public class StopMap {
         }
     }
 
+    //return the map of Stops
     public HashMap<Integer, BusStop> getMapOfStops() {
         return mapOfStops;
     }

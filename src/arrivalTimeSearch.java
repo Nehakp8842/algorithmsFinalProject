@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class arrivalTimeSearch {
     private ternarySearchTree<stopTime> stopTimeTree;
 
+    //create ternary search tree for searching by arrival time
     public arrivalTimeSearch() {
         stopTimeTree = new ternarySearchTree<>();
         stopTimeList makeList = new stopTimeList();
@@ -13,6 +14,7 @@ public class arrivalTimeSearch {
         }
     }
 
+    //get tree that was created
     public ternarySearchTree<stopTime> getStopTimeTree() {
         return stopTimeTree;
     }
